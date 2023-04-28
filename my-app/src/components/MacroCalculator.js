@@ -8,9 +8,11 @@ const MacroCalculator = () => {
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
   const [activityLevel, setActivityLevel] = useState('');
+  const [goal, setGoal] = useState('maintain');
   const [protein, setProtein] = useState('');
   const [carbs, setCarbs] = useState('');
   const [fat, setFat] = useState('');
+  const [calories, setCalories] = useState('');
 
   const proteinRatio = 0.3;
   const carbRatio = 0.4;
@@ -25,6 +27,12 @@ const MacroCalculator = () => {
     const bmr = gender === 'male'
       ? (10 * weightInKilos) + (6.25 * (height * 2.54)) - (5 * age) + 5
       : (10 * weightInKilos) + (6.25 * (height * 2.54)) - (5 * age) - 161;
+    
+    const goalFactors = {
+      lose: 0.75,
+      gain: 1.1,
+      maintain: 1,
+    };
 
     const activityFactors = {
       sedentary: 1.2,
@@ -33,7 +41,9 @@ const MacroCalculator = () => {
       veryActive: 1.725,
       extraActive: 1.9,
     };
-    const tdee = bmr * activityFactors[activityLevel];
+
+
+    const tdee = (bmr * activityFactors[activityLevel]) * (goalFactors[goal]);
     const proteinCalories = proteinRatio * tdee;
     const carbsCalories = carbRatio * tdee;
     const fatCalories = fatRatio * tdee;
@@ -43,8 +53,10 @@ const MacroCalculator = () => {
     setProtein(proteinGrams.toFixed(0));
     setCarbs(carbsGrams.toFixed(0));
     setFat(fatGrams.toFixed(0));
-  }
+    setCalories(tdee.toFixed(0));
   
+  }
+
 
   
   return (
@@ -74,9 +86,17 @@ const MacroCalculator = () => {
           <option value="extraActive">Extra Active</option>
         </select>
 
+      <label>Goal:</label>
+        <select value={goal} onChange={e => setGoal(e.target.value)}>
+          <option value="maintain">Maintain</option>
+          <option value="lose">Lose Weight</option>
+          <option value="gain">Gain Muscle</option>
+        </select>
+
       <button type="submit">Calculate Macros</button>
-      
-      <label className="protein">Protein: {protein}g</label>
+
+      <label className="calories">Calories: {calories}</label>
+      <label className="protein">Protein:{protein}g</label>
       <label className="carbs">Carbs: {carbs}g</label>
       <label className="fat">Fat: {fat}g</label>
     

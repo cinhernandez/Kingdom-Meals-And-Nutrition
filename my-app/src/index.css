@@ -1,16 +1,16 @@
 :root {
-  --turquoise: #00efe1;
-  --mid-turquoise: #14d5c9;
-  --dark-turquoise: #00333f;
-  --black: #030416;
+  --turquoise: #A9A9A9;
+  --mid-turquoise: white;
+  --dark-turquoise: #A9A9A9;
+  --black: #1f1f20;
   --white: #f1f1f1;
   --grey: #d6e2e7;
   --dark-grey: #7f8a8e;
   --yellow: #f9c51a;
   --orange: #ff5c00;
   --fuschia: #e80352;
-  --blue: #338fff;
-  --blue-dark: #145cb3;
+  --blue: white;
+  --blue-dark: --black;
   --purple: #cda2ff;
   --green: #00ef7c;
   --color: var(--white);
@@ -26,7 +26,7 @@
 }
 
 body {
-  font-family: "Fira Code", monospace;
+  font-family: "Copperplate, Papyrus, fantasy";
   font-size: 16px;
   color: var(--color);
   background-color: var(--background);
@@ -41,7 +41,7 @@ body {
 .App.light {
   --color: var(--black);
   --background: var(--white);
-  --primary: var(--dark-turquoise);
+  --primary: var(--white);
 }
 
 section {
@@ -53,7 +53,7 @@ section {
 
 /* buttons */
 button {
-  padding: 0.5rem 0.75rem;
+  padding: 0.8rem 0.75rem;
   border: none;
   font: inherit;
   font-weight: 600;
@@ -223,14 +223,23 @@ select:focus {
 
 .card .details {
   margin: 0.5rem;
+  position: relative;
+}
+
+.card .details title {
+  margin: 0 rem 0;
+  position: relative;
 }
 
 .card .details h4 {
   margin: 0.5rem 0;
+  position: relative;
 }
 
 .card .details p {
   margin: 0.5rem 0;
+  position: relative;
+  
 }
 
 .card .extra {
@@ -251,7 +260,7 @@ select:focus {
 }
 
 .box {
-  border: 2px solid var(--dark-turquoise);
+  border: 6px solid var(--dark-turquoise);
   padding: 1.75rem;
 }
 
@@ -285,10 +294,13 @@ nav {
   display: flex;
   justify-content: space-between;
   align-content: center;
+ 
 }
 
 .navigation * {
-  margin: 0 0.5rem;
+  margin: 0 0.8rem;
+  position: relative;
+  left: 415px;
 }
 
 header h1 a {
@@ -312,4 +324,8 @@ header h1 a:hover {
   max-width: 1000px;
   display: block;
   margin-bottom: 2rem;
+}
+.home {
+  position: relative;
+  left: 300px
 }

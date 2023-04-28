@@ -48,7 +48,7 @@ const App = () => {
   };
 
   return (
-    <div >
+    <div>
       <Header />
       <Switch>
         <Route exact path="/">
@@ -69,7 +69,8 @@ const App = () => {
           sticky={{start: 0, end: 2.5}}
           offset={0.2}
           speed={0.05}>
-          <img src="/images/Kingdom-logo.png" alt= "Header" />
+      
+          <img src="/images/Kingdom-logo.png" alt= "Header" className="home" />
           </ParallaxLayer>
 
           <ParallaxLayer 
@@ -84,24 +85,31 @@ const App = () => {
           </ParallaxLayer>
         </Parallax>
         </Route>
+        
         <Route exact path="/meals">
           <MealList meals={meals} onDeleteMeal={onDeleteMeal} />
         </Route>
+
         <Route exact path="/meals/:id/edit">
           <MealEditForm onUpdateMeal={onUpdateMeal} />
         </Route>
-        <Route path="/meals/new">
+
+        <Route exact path="/new">
           <MealForm onAddMeal={onAddMeal} />
         </Route>
+
         <Route path="/meals/:id">
           <MealDetail />
         </Route>
+
         <Route path="/calculator">
           <MacroCalculator />
         </Route>
+
         <Route path="/login">
           <Login />
         </Route>
+
         <Route path="/signup">
           <SignUp />
         </Route>

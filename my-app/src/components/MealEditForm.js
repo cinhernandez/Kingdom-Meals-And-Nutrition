@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { useParams, useHistory } from "react-router-dom";
 
-const MealEditForm = ({ onUpdateProject }) => {
+const MealEditForm = ({ onUpdateMeal }) => {
   const [formData, setFormData] = useState({
     title: "",
     calories: "",
@@ -43,7 +43,7 @@ const MealEditForm = ({ onUpdateProject }) => {
     fetch(`http://localhost:4000/meals/${id}`, configObj)
       .then((resp) => resp.json())
       .then((updatedMeal) => {
-        onUpdateProject(updatedMeal);
+        onUpdateMeal(updatedMeal);
         history.push(`/meals/${id}`);
       });
   };

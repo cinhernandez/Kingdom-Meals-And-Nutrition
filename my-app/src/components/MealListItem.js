@@ -24,7 +24,7 @@ const MealListItem = ({
     fetch(`http://localhost:4000/meals/${id}`, {
       method: "DELETE",
     });
-    onDeleteMeal(meal)
+        onDeleteMeal(meal)
       .then((resp) => console.log(resp))
       .then(onDeleteMeal(meal));
   };
@@ -48,15 +48,16 @@ const MealListItem = ({
       </section>
 
       <footer className="extra">
-        <span className="badge blue">Phase </span>
+        
         <div className="manage">
           <Link to={`/meals/${id}/edit`}>
             <button type="button">
-             
+             ✏️
             </button>
           </Link>
+          
           <button onClick={handleDeleteClick}>
-         
+            🗑
           </button>
         </div>
       </footer>

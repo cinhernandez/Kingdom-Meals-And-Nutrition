@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 const MealDetail = () => {
@@ -36,13 +36,12 @@ const MealDetail = () => {
           </button>
         </div>
         <div className="details">
-        <h2>{title}</h2>
+        <h2 className="title">{title}</h2>
         <h3>Calories: {calories}</h3>
         <p>Protein:{protein}</p>
         <p>Fat: {fat}</p>
         <p>Carbs: {carbs}</p>
           <div className="extra">
-            <span className="badge blue">Phase </span>
           </div>
         </div>
       </div>

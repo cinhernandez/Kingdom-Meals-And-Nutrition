@@ -7,6 +7,10 @@ const MealList = ({
   onDeleteMeal,
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedMeal, setSeletedMeal] = useState("default");
+
+  
+
 
   const searchResults = meals.filter((meal) => {
     return meal.title.toLowerCase().includes(searchQuery.toLowerCase());
@@ -23,25 +27,34 @@ const MealList = ({
     );
   });
 
+  
   const handleOnChange = (e) => setSearchQuery(e.target.value);
+
+  
+  const handleChange = (e) => {
+    setSeletedMeal(e.target.value);
+  }
+  
 
   return (
     <section>
-      <h2>Meals</h2>
+      <h2>Meal Option</h2>
 
       <div className="filter">
-        <button type="button">All</button>
-        <button type="button">High Protein Meals</button>
-        <button type="button">Low Carbs</button>
-        <button type="button">Under 800 Calories</button>
-        <button type="button">Low Fat</button>
-        <button type="button">Sweets</button>
+      <select value={selectedMeal} onChange={handleChange}>
+
+        <option value="default">Select an option</option>
+        <option value="option1" >High Protein</option>
+        <option value="option2">Under 500 Calories</option>
+        <option value="option3">Low Carb</option>
+        </select>
       </div>
       <input type="text" placeholder="Search..." onChange={handleOnChange} />
 
       <ul className="cards">{mealItems}</ul>
     </section>
-  );
+  )
+  
 };
 
 export default MealList;

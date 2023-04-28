@@ -15,7 +15,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="box">
+    <section className= "">
      
       {recentMeals.map((meal) => (
         <p key={meal.id}>{meal.name}</p>

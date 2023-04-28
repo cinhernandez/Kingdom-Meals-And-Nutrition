@@ -87,7 +87,7 @@ const MealForm = ({ onAddMeal }) => {
           value={formData.carbs}
         />
 
-        <label htmlFor="image">Share your meal photo</label>
+        <label htmlFor="image">Share your meal photo:</label>
         <input
           type="text"
           id="image"
